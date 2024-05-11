@@ -1,4 +1,4 @@
-package io.javabrains;
+package io.javabrains.betterreads;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,8 +16,8 @@ public class SecurityAdapter {
 		// @formatter:off
 		http
 			.authorizeRequests(a -> a
-				.antMatchers("/", "/error").permitAll()
-				.anyRequest().authenticated()
+				//.antMatchers("/", "/error").permitAll()
+				.anyRequest().permitAll()
 			)
 			.exceptionHandling(e -> e
 				.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
