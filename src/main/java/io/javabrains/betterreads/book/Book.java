@@ -11,12 +11,17 @@ import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.Table;
 import org.springframework.data.cassandra.core.mapping.CassandraType.Name;
 
+/**
+ * Model that represents the books_by_id table in Cassandra.
+ * Stores the book information retrievable by the book ID
+ */
+
 @Table(value = "book_by_id")
 public class Book {
-
-    @Id @PrimaryKeyColumn(name = "book_id" , ordinal = 0, type = PrimaryKeyType.PARTITIONED)
+    
+    @Id @PrimaryKeyColumn(name = "book_id", ordinal = 0, type = PrimaryKeyType.PARTITIONED)
     private String id;
-
+    
     @Column("book_name")
     @CassandraType(type = Name.TEXT)
     private String name;
@@ -96,7 +101,7 @@ public class Book {
     public void setAuthorIds(List<String> authorIds) {
         this.authorIds = authorIds;
     }
-
     
+
 
 }
